@@ -1,7 +1,25 @@
 version: "3"
 
 services:
-  vote:
+  demoapi:
     build: .
     ports:
       - "4000:80"
+    depends_on:
+      - mssqlserver
+
+  mssqlserverp:
+    image: microsoft/mssql-server-linux:latest
+    container_name: mssqlserver
+    volumes:
+      - sqlserverdata:/var/opt/mssql 
+    ports:
+      - "1434:1433"
+    environment:
+      - ACCEPT_EULA=Y 
+      - MSSQL_PID=Developer
+      - SA_PASSWORD=8jkGh47hnDw89Haq8LN2
+
+volumes:
+  sqlserverdata:
+    external: true  
