@@ -38,6 +38,11 @@
             "netCore": {
                 "appProject": "${workspaceFolder}/helloaspnetcore.csproj"
             }
+        },
+        {
+            "name": "Local Process with Kubernetes",
+            "type": "local-process-with-kubernetes.configuration",
+            "request": "launch"
         }
     ]
 }
